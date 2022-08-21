@@ -1,13 +1,14 @@
 import React from 'react';
+import styles from './PostComponent.module.css';
 import PropTypes from 'prop-types';
 import Image from "next/image";
 
-const PostComponent = props => {
+export const PostComponent = props => {
     return (
-        <div className={globalContainer}>
-            <div className={upperContainer}>
-                <div className={upperImageContainer}>
-                    <Image src={props.image} alt={props.title} width={fill} />
+        <div className={styles.globalContainer}>
+            <div className={styles.upperContainer}>
+                <div className={styles.upperImageContainer}>
+                    <Image src={props.image} alt={props.title} layout="fill" />
                 </div>
             </div>
 
@@ -20,4 +21,7 @@ PostComponent.propTypes = {
     title: PropTypes.string,
 };
 
-export default MyComponent;
+PostComponent.defaultProps = {
+    image: "/postimage.webp",
+    title: "",
+}
